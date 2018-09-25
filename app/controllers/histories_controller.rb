@@ -27,6 +27,7 @@ class HistoriesController < ApplicationController
     @history = History.new(history_params)
 
     respond_to do |format|
+  #    byebug
       if @history.save
         format.html { redirect_to @history, notice: 'History was successfully created.' }
         format.json { render :show, status: :created, location: @history }
@@ -69,6 +70,6 @@ class HistoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def history_params
-      params.require(:history).permit(:title, :picture, :content, :remote_picture_url)
+      params.require(:history).permit(:title, :picture, :content, :remote_picture_url, :picture_cache)
     end
 end

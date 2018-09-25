@@ -1,9 +1,5 @@
 class User < ApplicationRecord
-  def current_user
-    User.find(session[:user_id])
-  end
+  validates :emial, uniqueness: true
+  has_many :histories
 
-  def logged?
-    session[:user_id].present? ? true : false
- end
 end
